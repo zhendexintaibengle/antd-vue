@@ -6,6 +6,8 @@
     <router-view/>
     <my-footer/>
   </div>
+
+  
 </template>
 
 <script>
