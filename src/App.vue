@@ -2,12 +2,14 @@
   <div>
     <my-header v-show="$route.meta.hide_header !=true"/>
     
+
+    给i他
     <!-- 路由占位符：会根据路径切换成对应的组件 -->
     <router-view/>
     <my-footer/>
   </div>
 
-  
+
 </template>
 
 <script>
