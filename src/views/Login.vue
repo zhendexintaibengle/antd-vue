@@ -5,7 +5,6 @@
     <header id="top">
       <div class="top">
         <router-link to="/">
-          <img src="http://www.codeboy.com:9999/img/header/logo.png" />
         </router-link>
         <span>欢迎登录</span>
       </div>
@@ -31,7 +30,7 @@
                 autofocus
               />
               <span
-                ><img src="http://www.codeboy.com:9999/img/login/yhm.png"
+                ><img
               /></span>
             </div>
             <div class="text">

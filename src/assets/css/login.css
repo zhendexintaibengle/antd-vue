@@ -25,7 +25,6 @@
   margin: 0px auto;
   overflow-x: hidden;
   height: 560px;
-  background-image: url("../img/register/bg.png");
 }
 #cover {
   width: 280px;
@@ -131,7 +130,6 @@
   overflow-x: hidden;
   height: 560px;
   /*border: 1px solid red;*/
-  background-image: url("../img/register/bg.png");
 }
 h2 {
   text-align: center;
