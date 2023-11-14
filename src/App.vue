@@ -26,6 +26,7 @@
           </div>
 
           <div class="reback">
+            <p class="shuiyin">{{ shuiyin }}</p>
             <img src="./assets/icons/reback.svg" />
             <img src="./assets/icons/photo.svg" />
           </div>
@@ -134,6 +135,7 @@
         </div>
 
         <div class="reback">
+          <p class="shuiyin">{{ shuiyin }}</p>
           <div class="reback-icon">
             <img src="./assets/icons/reback.svg" />
           </div>
@@ -262,7 +264,8 @@ export default {
       title: "微信也要莫名“挨刀”了",
       auth: "有理儿有面",
       otherTitle: "赖清德喜提新名“赖八万”",
-      otherAuth: "有理儿有面"
+      otherAuth: "有理儿有面",
+      shuiyin: '028'
     };
   },
   computed: {
@@ -552,10 +555,17 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 25px;
-  margin-top: 14px;
+  margin-top: 20px;
   padding: 0 12px;
   img {
     height: 100%;
+  }
+  .shuiyin{
+    position: absolute;
+    font-size: 40px;
+    color: red;
+    right: 45px;
+    top: -15px;
   }
 }
 
