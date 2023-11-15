@@ -67,14 +67,14 @@
 
         <div class="friends">
           <div class="profiles">
-            <img :src="txObj[Math.floor(Math.random() * (5 -1) + 1)]" />
+            <img :src="txObj[Math.floor(Math.random() * (1400 -1) + 1)]" />
           </div>
           <div class="friends-other">
             <p class="currentname">{{ item.otherName }}</p>
             <div class="friends-other-img-div">
               <img class="friends-other-img" :src="backimg[Math.floor(Math.random() * (4 -1) + 1)]" />
             </div>
-            <p class="frendsTxt">{{ textLangs[Math.floor(Math.random() * (170 -1) + 1)] }}</p>
+            <p class="frendsTxt">{{ textLangs[Math.floor(Math.random() * (1665 -1) + 1)] }}</p>
 
             <div class="friends-footer">
               <div class="friends-infos">
