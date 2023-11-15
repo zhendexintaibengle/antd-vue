@@ -145,7 +145,7 @@
         <div class="myTx">
           <div class="left-div">
             <div class="myTx-img">
-              <img :src="currentTx[item.txIndex]" />
+              <img :src="currentTx[Math.floor(Math.random() * (345 -1) + 1)]" />
             </div>
             <p>{{ item.nickname }}</p>
           </div>
