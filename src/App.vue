@@ -8,13 +8,13 @@
       >
         <div
           class="top-img"
-          :style="`background-image: url(${backimg[Math.floor(Math.random() * (4 -1) + 1)]});`"
+          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.webp`)});`"
         >
           <!-- <img src="./assets/img/bg/bg1.jpg" crossorigin="use-credentials" /> -->
           <div class="top-img-time">
             <div class="top-img-time-left">
               <img src="./assets/icons/xinhao.svg" />
-              <div class="leftpngs">中国移动</div>
+              <div class="leftpngs">{{item.yys}}</div>
               <img class="leftpngs" src="./assets/icons/wifi.svg" />
             </div>
             <div class="top-img-time-mindel">{{item.randomTimes}}</div>
@@ -34,14 +34,22 @@
           <div class="name">
             <p>{{ item.nickname }}</p>
             <div class="top-toux">
-              <img :src="currentTx[item.txIndex]" />
+              <img
+                class="errorImg"
+                :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)"
+                crossorigin="anonymous"
+              />
             </div>
           </div>
         </div>
 
         <div class="zhuanfa">
           <div class="profiles">
-            <img :src="currentTx[item.txIndex]" />
+            <img
+              class="errorImg"
+              :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)"
+              crossorigin="anonymous"
+            />
           </div>
 
           <div class="zhuanfa-content">
@@ -67,13 +75,18 @@
 
         <div class="friends">
           <div class="profiles">
-            <img :src="txObj[Math.floor(Math.random() * (1400 -1) + 1)]" />
+            <img
+              class="errorImg"
+              :src="require(`./assets/img/profiles/${item.othertxIndex}.webp`)"
+              @error="errorImg(index, 'other')"
+              crossorigin="anonymous"
+            />
           </div>
           <div class="friends-other">
             <p class="currentname">{{ item.otherName }}</p>
-            <div class="friends-other-img-div">
+            <!-- <div class="friends-other-img-div">
               <img class="friends-other-img" :src="backimg[Math.floor(Math.random() * (4 -1) + 1)]" />
-            </div>
+            </div>-->
             <p class="frendsTxt">{{ textLangs[Math.floor(Math.random() * (1665 -1) + 1)] }}</p>
 
             <div class="friends-footer">
@@ -145,7 +158,7 @@
         <div class="myTx">
           <div class="left-div">
             <div class="myTx-img">
-              <img :src="currentTx[Math.floor(Math.random() * (345 -1) + 1)]" />
+              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)" />
             </div>
             <p>{{ item.nickname }}</p>
           </div>
@@ -183,9 +196,7 @@
           </div>
         </div>
 
-        <div class="desc">
-          超过48小时的在看对朋友不可见
-        </div>
+        <div class="desc">超过48小时的在看对朋友不可见</div>
 
         <div class="news">
           <div class="news-top">
@@ -227,29 +238,39 @@
 <script>
 import html2canvas from "html2canvas";
 import moment from "moment";
-import generateIkeaLikeName from "ikea-chinesename-generator";
 import langs from "./store/lang_test.js";
 import tx from "./store/tx.js";
 import backimg from "./store/backimg.js";
 import currentTx from "./store/currentTx.js";
+import interNames from "./store/names.js";
 
 export default {
   data() {
     return {
-      times: moment(new Date()).format("LT"),
+      yys: {
+        1: '中国移动',
+        2: '中国电信',
+        3: '中国联通',
+      },
+      interNames,
+      times: "11:30", //moment(new Date()).format("HH:mm"),
       names: "不知江月待何人",
       mins: 4,
       dialogVisible: false,
       num: 1,
       zfImg: [
         {
+          yys: '中国移动',
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
-          otherName: generateIkeaLikeName(),
-          randomTimes: moment(new Date()).format("LT"),
-          txIndex: Math.floor(Math.random() * (4 - 1) + 1),
-          dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format("MM月DD日")
+          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
+          randomTimes: "11:30", //moment(new Date()).format("HH:mm"),
+          txIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
+            "MM月DD日"
+          )
         }
       ],
       zfsrc: require("./assets/zhuanfa/zf1.png"),
@@ -265,7 +286,7 @@ export default {
       auth: "有理儿有面",
       otherTitle: "赖清德喜提新名“赖八万”",
       otherAuth: "有理儿有面",
-      shuiyin: '028'
+      shuiyin: "028"
     };
   },
   computed: {
@@ -274,11 +295,24 @@ export default {
       const times = currentTimes.getTime();
       const randomTimes =
         times - Math.floor(Math.random() * (2 * 60 * 60 * 1000 - 1000) + 1000);
-      const timeStr = moment(new Date(randomTimes)).format("LT");
+      const timeStr = moment(new Date(randomTimes)).format("HH:mm");
       return timeStr;
     }
   },
   methods: {
+    errorImg(e, tag) {
+      const ducomentClass = document.getElementsByClassName("errorImg");
+      if (tag === "current") {
+        ducomentClass[0].src = require(`./assets/img/bg/${e + 1}.webp`);
+        ducomentClass[1].src = require(`./assets/img/bg/${e + 1}.webp`);
+        ducomentClass[0].onerror = null;
+        ducomentClass[1].onerror = null;
+      } else {
+        ducomentClass[2].src = require(`./assets/img/bg/${e + 1}.webp`);
+        ducomentClass[2].onerror = null;
+      }
+      // e.srcElement.src = require(`./assets/img/bg/bg${ind}.png`);
+    },
     herfToFrend() {
       this.isShow = true;
     },
@@ -319,27 +353,43 @@ export default {
       this.num = 1;
     },
     comfirm() {
-      const random = Math.floor(Math.random() * (4 - 1) + 1);
       this.dialogVisible = false;
       const currentTimes = new Date(); //moment(new Date()).format("LT")
       const times = currentTimes.getTime();
       const randomTimes =
         times - Math.floor(Math.random() * (2 * 60 * 60 * 1000 - 1000) + 1000);
-      const timeStr = moment(new Date(randomTimes)).format("LT");
       // 将上传完摁键转换数组
       const arr = [
         {
+          yys: '中国移动',
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
-          otherName: generateIkeaLikeName(),
+          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
           randomTimes: this.times,
-          txIndex: random,
-          dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format("MM月DD日")
+          txIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
+            "MM月DD日"
+          ),
         }
       ];
       for (let i = 2; i <= this.num; i++) {
-        const ikeaName = generateIkeaLikeName();
+        // 随机生成11-15 数字
+        const randomHourNum = Math.floor(Math.random() * (15 - 11) + 11);
+        // 随机生成0 - 60 数字
+        let randomMinuteNum = Math.floor(Math.random() * (60 - 1) + 1);
+        if (randomHourNum === 15) {
+          randomMinuteNum = Math.floor(Math.random() * (30 - 1) + 1);
+        }
+        if(randomHourNum === 11){
+          randomMinuteNum = Math.floor(Math.random() * (60 - 30) + 30);
+        }
+        const timeStr = moment()
+          .hour(randomHourNum)
+          .minutes(randomMinuteNum)
+          .format("HH:mm");
+        const ikeaName = interNames[Math.floor(Math.random() * (6 - 1) + 1)];
         // 随机获取1-60以内数值
         const nums = Math.floor(Math.random() * (60 - 1) + 1);
         this.frendsTimes = nums;
@@ -353,17 +403,25 @@ export default {
           this.types = "分钟";
         }
         // 随机获取头像index值
-        const txIndex = Math.floor(Math.random() * (4 - 1) + 1);
+        const txIndex = Math.floor(Math.random() * (20 - 1) + 1);
+        const othertxIndex = Math.floor(Math.random() * (20 - 1) + 1);
         // j获取随机时间 - 》 48小时
-        const largeTime =  Math.floor(Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000)
+        const largeTime = Math.floor(
+          Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
+        );
+        const yys = this.yys[Math.floor(Math.random() * (4 - 1) + 1)]
         arr.push({
+          yys,
           nickname: ikeaName,
           frendsTimes: nums,
           types: this.types,
-          otherName: generateIkeaLikeName(),
+          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
           randomTimes: timeStr,
           txIndex,
-          dateTimes: moment(new Date().getTime() - largeTime - 48 * 60 * 60 * 1000).format("MM月DD日")
+          othertxIndex,
+          dateTimes: moment(
+            new Date().getTime() - largeTime - 48 * 60 * 60 * 1000
+          ).format("MM月DD日")
         });
       }
       this.zfImg = arr;
@@ -398,7 +456,7 @@ export default {
       return new Blob([u8arr], { type: mime });
     },
 
-    downLoadLooks(){
+    downLoadLooks() {
       const ducomentClass = document.getElementsByClassName("looks-div");
 
       const ducomentClassArray = Array.prototype.slice.call(ducomentClass);
@@ -426,7 +484,6 @@ export default {
           }
         );
       });
-
     },
 
     downLoadImg() {
@@ -481,7 +538,7 @@ body {
 
 .contant {
   width: 390px;
-  height: 820px;
+  // height: 650px;
 }
 .content-other {
   position: absolute;
@@ -560,7 +617,7 @@ body {
   img {
     height: 100%;
   }
-  .shuiyin{
+  .shuiyin {
     position: absolute;
     font-size: 40px;
     color: red;
@@ -674,7 +731,10 @@ body {
   padding: 0 20px;
   white-space: normal;
   .profiles {
+    width: 40px;
+    height: 40px;
     img {
+      width: 100%;
       height: 40px;
       border-radius: 6px;
     }
@@ -683,6 +743,11 @@ body {
     width: 300px;
     padding-left: 10px;
     color: #485460;
+    .currentname {
+      font-size: 16px;
+      color: #485460;
+      font-weight: 600;
+    }
   }
   .frendsTxt {
     font-size: 14px;
@@ -713,13 +778,12 @@ body {
   }
 }
 
-
 .looks {
   display: flex;
   .looks-div {
     background: rgba(17, 17, 17, 1);
     height: 660px;
-  overflow: hidden;
+    overflow: hidden;
   }
   .looks-xinhao {
     width: 20px;
@@ -819,44 +883,44 @@ body {
   border-color: #222 transparent transparent transparent;
   height: 75px;
   padding-left: 20px;
-  span{
+  span {
     color: #818281;
   }
-  .times-ago{
+  .times-ago {
     color: #555555;
     padding-top: 20px;
     padding-bottom: 10px;
   }
-  .times-bottom{
+  .times-bottom {
     display: flex;
     justify-content: space-between;
-    .looking{
-    display: flex;
-    align-items: center;
-      img{
+    .looking {
+      display: flex;
+      align-items: center;
+      img {
         width: 16px;
         margin-left: 10px;
       }
     }
-    .right-tp{
+    .right-tp {
       width: 30px;
       position: relative;
-    top: 4px;
-    right: 20px;
-      img{
+      top: 4px;
+      right: 20px;
+      img {
         width: 30px;
       }
     }
   }
 }
-.desc{
+.desc {
   color: #5e5e5e;
   font-size: 14px;
   width: 390px;
   display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 10px;
 }
 </style>
