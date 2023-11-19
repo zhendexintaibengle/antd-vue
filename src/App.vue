@@ -672,7 +672,7 @@ body {
   width: 300px;
   .currentname {
     font-size: 16px;
-    color: #485460;
+    color: #5b6990;
     font-weight: 600;
   }
 }
@@ -714,7 +714,7 @@ body {
     margin-right: 8px;
   }
   img {
-    height: 14px;
+    height: 18px;
   }
 }
 .oparetions {
@@ -742,10 +742,10 @@ body {
   .friends-other {
     width: 300px;
     padding-left: 10px;
-    color: #485460;
+    color: #5b6990;
     .currentname {
       font-size: 16px;
-      color: #485460;
+      color: #5b6990;
       font-weight: 600;
     }
   }
