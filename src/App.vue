@@ -107,6 +107,7 @@
 
         <el-button type="text" @click="downLoadImg">点击下载</el-button>
 
+
         <el-dialog
           title="文件个数"
           :visible.sync="dialogVisible"
