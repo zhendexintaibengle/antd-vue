@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div  v-loading="loading" element-loading-text="拼命下载中,请稍后...">
     <div class="main" v-if="isShow">
       <div
         :class="['contant', index >= 1 && 'content-other']"
@@ -43,7 +43,12 @@
           </div>
         </div>
 
-        <div v-for="(vals, valsIndex) in inputList" :key="vals.nickname" class="zhuanfa" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
+        <div
+          v-for="(vals, valsIndex) in inputList"
+          :key="vals.nickname"
+          class="zhuanfa"
+          :style="valsIndex != 0 ? 'margin-top: 30px' : ''"
+        >
           <div class="profiles">
             <img
               class="errorImg"
@@ -103,10 +108,9 @@
       </div>
 
       <div class="footer-btn">
-        <el-button type="text" @click="dialogVisible = true">点击上传</el-button>
+        <el-button type="text" @click="dialogVisible = true" :disabled="loading">点击上传</el-button>
 
-        <el-button type="text" @click="downLoadImg">点击下载</el-button>
-
+        <el-button type="text" @click="downLoadImg" :disabled="loading">点击下载</el-button>
 
         <el-dialog
           title="文件个数"
@@ -127,9 +131,8 @@
           </span>
         </el-dialog>
         <div>
-          <el-button type="text" @click="herfToLook">去看一看</el-button>
+          <el-button type="text" @click="herfToLook" :disabled="loading">去看一看</el-button>
         </div>
-
       </div>
     </div>
     <div class="looks" v-else>
@@ -173,7 +176,12 @@
           </div>
         </div>
 
-        <div class="news" v-for="(vals, valsIndex) in inputList" :key="vals.nickname" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
+        <div
+          class="news"
+          v-for="(vals, valsIndex) in inputList"
+          :key="vals.nickname"
+          :style="valsIndex != 0 ? 'margin-top: 30px' : ''"
+        >
           <div class="news-top">
             <div class="news-infos">
               <p>{{ vals.title }}</p>
@@ -186,7 +194,7 @@
 
           <div class="news-bottom">
             <div class="times-ago">
-              <p>{{ valsIndex == 0 ? Math.floor(Math.random() * 6 + 1) :  Math.floor(Math.random() * 16 + 6) }}分钟前</p>
+              <p>{{ valsIndex == 0 ? Math.floor(Math.random() * 6 + 1) : Math.floor(Math.random() * 16 + 6) }}分钟前</p>
             </div>
 
             <div class="times-bottom">
@@ -205,7 +213,7 @@
           <div class="lines left"></div>
           <p class="text">超过48小时的在看对朋友不可见</p>
           <div class="lines right"></div>
-          </div>
+        </div>
 
         <div class="news">
           <div class="news-top">
@@ -237,8 +245,8 @@
       </div>
 
       <div>
-        <el-button type="text" @click="downLoadLooks">下载看一看</el-button>
-        <el-button type="text" @click="herfToFrend">去朋友圈</el-button>
+        <el-button type="text" @click="downLoadLooks" :disabled="loading">下载看一看</el-button>
+        <el-button type="text" @click="herfToFrend" :disabled="loading">去朋友圈</el-button>
       </div>
     </div>
   </div>
@@ -261,12 +269,13 @@ export default {
           title: "微信也要莫名“挨刀”了微信也要莫名“挨刀”了微信也要莫名“挨刀”了",
           auth: "有理儿有面",
           otherTitle: "赖清德喜提新名“赖八万”",
-          otherAuth: "有理儿有面",
-        },{
+          otherAuth: "有理儿有面"
+        },
+        {
           title: "再加一条转发内容",
           auth: "有理儿有面",
           otherTitle: "赖清德喜提新名“赖八万”",
-          otherAuth: "有理儿有面",
+          otherAuth: "有理儿有面"
         }
       ],
       yys: {
@@ -308,7 +317,8 @@ export default {
       auth: "有理儿有面",
       otherTitle: "赖清德喜提新名“赖八万”",
       otherAuth: "有理儿有面",
-      shuiyin: "028"
+      shuiyin: "028",
+      loading: false
     };
   },
   computed: {
@@ -480,12 +490,18 @@ export default {
     },
 
     downLoadLooks() {
+
+      this.loading = true;
+      this.$message({
+        type: "success",
+        message: "正在下载中，请勿操作页面，请稍后..."
+      });
       const ducomentClass = document.getElementsByClassName("looks-div");
 
       const ducomentClassArray = Array.prototype.slice.call(ducomentClass);
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
-      ducomentClassArray.forEach(items => {
+      ducomentClassArray.forEach((items, index) => {
         html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
           canvas => {
             // 追加一个canvas元素
@@ -504,18 +520,31 @@ export default {
             a.click();
             URL.revokeObjectURL(blob);
             document.body.removeChild(a);
+
+            if (index + 1 === this.num) {
+              this.loading = false;
+              this.$message({
+                type: "success",
+                message: "已下载完成..."
+              });
+            }
           }
         );
       });
     },
 
     downLoadImg() {
+      this.loading = true;
+      this.$message({
+        type: "success",
+        message: "正在下载中，请勿操作页面，请稍后..."
+      });
       const ducomentClass = document.getElementsByClassName("contant");
 
       const ducomentClassArray = Array.prototype.slice.call(ducomentClass);
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
-      ducomentClassArray.forEach(items => {
+      ducomentClassArray.forEach((items, index) => {
         html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
           canvas => {
             // 追加一个canvas元素
@@ -534,6 +563,14 @@ export default {
             a.click();
             URL.revokeObjectURL(blob);
             document.body.removeChild(a);
+
+            if (index + 1 === this.num) {
+              this.loading = false;
+              this.$message({
+                type: "success",
+                message: "已下载完成..."
+              });
+            }
           }
         );
       });
@@ -624,7 +661,7 @@ body {
   height: 80%;
 }
 
-.pngs-nz-black{
+.pngs-nz-black {
   height: 95%;
 }
 .dianchi {
@@ -635,7 +672,7 @@ body {
   font-size: 14px;
   font-weight: normal;
 }
-.leftpngs-looks{
+.leftpngs-looks {
   margin-left: 4px;
   font-size: 14px;
   font-weight: normal;
@@ -829,7 +866,7 @@ body {
   }
 }
 
-.reback{
+.reback {
   padding-bottom: 10px;
 }
 
@@ -838,9 +875,9 @@ body {
   height: 25px;
 }
 
-.looks-reback-icons{
+.looks-reback-icons {
   width: 18px;
-  img{
+  img {
     width: 18px;
   }
 }
@@ -942,7 +979,7 @@ body {
     padding-top: 20px;
     padding-bottom: 10px;
     font-weight: normal;
-    font-size:12px;
+    font-size: 12px;
   }
   .times-bottom {
     display: flex;
@@ -954,7 +991,7 @@ body {
         width: 18px;
         margin-left: 10px;
         position: relative;
-    top: -1px;
+        top: -1px;
       }
     }
     .right-tp {
@@ -979,15 +1016,15 @@ body {
   margin-top: 10px;
   display: flex;
   align-items: center;
-  .left{
+  .left {
     margin-right: 10px;
   }
-  .right{
+  .right {
     margin-left: 10px;
   }
 }
 
-.lines{
+.lines {
   height: 2px;
   width: 35px;
   border: 1px solid #d3d3d3;
