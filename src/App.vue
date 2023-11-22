@@ -286,7 +286,7 @@ export default {
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
-          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
+          otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: "11:30", //moment(new Date()).format("HH:mm"),
           txIndex: Math.floor(Math.random() * (500 - 1) + 1),
           othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
@@ -388,7 +388,7 @@ export default {
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
-          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
+          otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: this.times,
           txIndex: Math.floor(Math.random() * (500 - 1) + 1),
           othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
@@ -412,7 +412,7 @@ export default {
           .hour(randomHourNum)
           .minutes(randomMinuteNum)
           .format("HH:mm");
-        const ikeaName = interNames[Math.floor(Math.random() * (6 - 1) + 1)];
+        const ikeaName = interNames[Math.floor(Math.random() * (500 - 1) + 1)];
         // 随机获取1-60以内数值
         const nums = Math.floor(Math.random() * (60 - 1) + 1);
         this.frendsTimes = nums;
@@ -432,13 +432,13 @@ export default {
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
         );
-        const yys = this.yys[Math.floor(Math.random() * (4 - 1) + 1)];
+        const yys = this.yys[Math.floor(Math.random() * (500 - 1) + 1)];
         arr.push({
           yys,
           nickname: ikeaName,
           frendsTimes: nums,
           types: this.types,
-          otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
+          otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: timeStr,
           txIndex,
           othertxIndex,
