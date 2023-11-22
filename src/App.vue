@@ -19,7 +19,7 @@
             </div>
             <div class="top-img-time-mindel">{{item.randomTimes}}</div>
             <div class="top-img-time-right">
-              <img class="pngs" src="./assets/icons/lock.png" />
+              <img class="pngs" src="./assets/icons/lock.svg" />
               <img class="pngs-nz" src="./assets/icons/naozhong.png" />
               <img class="dianchi" src="./assets/icons/dianchi.png" />
             </div>
@@ -140,22 +140,22 @@
       >
         <div class="top-img-time looks-tops">
           <div class="top-img-time-left">
-            <img class="looks-xinhao" src="./assets/icons/xinhao.svg" />
-            <div class="leftpngs">中国移动</div>
-            <img class="leftpngs looks-wifi" src="./assets/icons/wifi.svg" />
+            <img class="looks-xinhao" src="./assets/icons/xinhao-black.svg" />
+            <div class="leftpngs-looks">中国移动</div>
+            <img class="leftpngs looks-wifi" src="./assets/icons/wifi-black.svg" />
           </div>
-          <div class="top-img-time-mindel">{{item.randomTimes}}</div>
+          <div class="top-img-time-mindel-looks">{{item.randomTimes}}</div>
           <div class="top-img-time-right">
-            <img class="pngs" src="./assets/icons/lock.png" />
-            <img class="pngs-nz" src="./assets/icons/naozhong.png" />
-            <img class="dianchi" src="./assets/icons/dianchi.png" />
+            <img class="pngs" src="./assets/icons/lock-black.svg" />
+            <img class="pngs-nz-black" src="./assets/icons/naozhong-black.svg" />
+            <img class="dianchi" src="./assets/icons/dianchi-black.svg" />
           </div>
         </div>
 
         <div class="reback">
           <p class="shuiyin">{{ shuiyin }}</p>
-          <div class="reback-icon">
-            <img src="./assets/icons/reback.svg" />
+          <div class="reback-icon looks-reback-icons">
+            <img src="./assets/icons/reback-looks.svg" />
           </div>
           <div class="mylook">我的在看</div>
         </div>
@@ -192,7 +192,7 @@
             <div class="times-bottom">
               <div class="looking">
                 <span>1在看</span>
-                <img src="./assets/oparetion/pull.svg" />
+                <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
                 <img src="./assets/oparetion/lue.jpg" />
@@ -201,7 +201,11 @@
           </div>
         </div>
 
-        <div class="desc">超过48小时的在看对朋友不可见</div>
+        <div class="desc">
+          <div class="lines left"></div>
+          <p class="text">超过48小时的在看对朋友不可见</p>
+          <div class="lines right"></div>
+          </div>
 
         <div class="news">
           <div class="news-top">
@@ -222,7 +226,7 @@
             <div class="times-bottom">
               <div class="looking">
                 <span>1在看</span>
-                <img src="./assets/oparetion/pull.svg" />
+                <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
                 <img src="./assets/oparetion/lue.jpg" />
@@ -254,7 +258,7 @@ export default {
     return {
       inputList: [
         {
-          title: "微信也要莫名“挨刀”了",
+          title: "微信也要莫名“挨刀”了微信也要莫名“挨刀”了微信也要莫名“挨刀”了",
           auth: "有理儿有面",
           otherTitle: "赖清德喜提新名“赖八万”",
           otherAuth: "有理儿有面",
@@ -580,6 +584,7 @@ body {
   position: relative;
   z-index: 2;
   justify-content: space-between;
+  padding-top: 4px;
 }
 .top-img-time-left {
   height: 100%;
@@ -605,6 +610,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 #contant-canvas {
   width: 390px;
   height: 2400px;
@@ -615,7 +621,11 @@ body {
   height: 80%;
 }
 .pngs-nz {
-  height: 70%;
+  height: 80%;
+}
+
+.pngs-nz-black{
+  height: 95%;
 }
 .dianchi {
   height: 100%;
@@ -624,6 +634,12 @@ body {
   margin-left: 4px;
   font-size: 14px;
   font-weight: normal;
+}
+.leftpngs-looks{
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #000;
 }
 .reback {
   display: flex;
@@ -800,8 +816,7 @@ body {
 .looks {
   display: flex;
   .looks-div {
-    background: rgba(17, 17, 17, 1);
-    height: 660px;
+    background: #edeced;
     overflow: hidden;
   }
   .looks-xinhao {
@@ -814,15 +829,25 @@ body {
   }
 }
 
+.reback{
+  padding-bottom: 10px;
+}
+
 .reback-icon {
   width: 25px;
   height: 25px;
 }
 
+.looks-reback-icons{
+  width: 18px;
+  img{
+    width: 18px;
+  }
+}
+
 .mylook {
-  color: #fff;
+  color: #000;
   font-size: 16px;
-  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -833,12 +858,13 @@ body {
 
 .myTx {
   height: 110px;
-  background: rgba(24, 24, 24, 1);
-  color: #fff;
+  background: #fffeff;
+  color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  font-weight: 500;
 }
 .myTx-img {
   width: 60px;
@@ -867,25 +893,29 @@ body {
 }
 
 .news {
-  background: #181818;
+  background: #fffeff;
   margin-top: 10px;
   padding: 20px 0;
 }
 .news-infos {
-  width: 290px;
+  width: 270px;
   padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   .auth {
-    color: #5f5f60;
+    color: #d3d3d3;
     font-size: 12px;
+    font-weight: normal;
+    padding-top: 10px;
   }
 }
 .news-top {
   display: flex;
-  color: #d0d0d0;
+  color: #000;
   padding-bottom: 20px;
+  font-weight: 500;
   .tp {
     width: 60px;
     height: 60px;
@@ -898,17 +928,21 @@ body {
 }
 
 .news-bottom {
-  border: 1px solid #222;
-  border-color: #222 transparent transparent transparent;
+  border: 1px solid #d3d3d3;
+  border-color: #d3d3d3 transparent transparent transparent;
   height: 75px;
-  padding-left: 20px;
+  margin-left: 20px;
   span {
-    color: #818281;
+    color: #acacac;
+    font-weight: normal;
+    font-size: 14px;
   }
   .times-ago {
-    color: #555555;
+    color: #d3d3d3;
     padding-top: 20px;
     padding-bottom: 10px;
+    font-weight: normal;
+    font-size:12px;
   }
   .times-bottom {
     display: flex;
@@ -917,8 +951,10 @@ body {
       display: flex;
       align-items: center;
       img {
-        width: 16px;
+        width: 18px;
         margin-left: 10px;
+        position: relative;
+    top: -1px;
       }
     }
     .right-tp {
@@ -933,7 +969,7 @@ body {
   }
 }
 .desc {
-  color: #5e5e5e;
+  color: #acacac;
   font-size: 14px;
   width: 390px;
   display: flex;
@@ -941,5 +977,30 @@ body {
   align-items: center;
   height: 40px;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  .left{
+    margin-right: 10px;
+  }
+  .right{
+    margin-left: 10px;
+  }
+}
+
+.lines{
+  height: 2px;
+  width: 35px;
+  border: 1px solid #d3d3d3;
+  border-color: #d3d3d3 transparent transparent transparent;
+  position: relative;
+  top: 2px;
+}
+
+.top-img-time-mindel-looks {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  color: #000;
 }
 </style>
