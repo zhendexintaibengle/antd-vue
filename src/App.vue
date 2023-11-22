@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <div v-for="(vals, valsIndex) in inputList" :key="valsIndex" class="zhuanfa" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
+        <div v-for="(vals, valsIndex) in inputList" :key="vals.nickname" class="zhuanfa" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
           <div class="profiles">
             <img
               class="errorImg"
@@ -173,7 +173,7 @@
           </div>
         </div>
 
-        <div class="news" v-for="(vals, valsIndex) in inputList" :key="valsIndex" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
+        <div class="news" v-for="(vals, valsIndex) in inputList" :key="vals.nickname" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
           <div class="news-top">
             <div class="news-infos">
               <p>{{ vals.title }}</p>
@@ -432,7 +432,7 @@ export default {
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
         );
-        const yys = this.yys[Math.floor(Math.random() * (500 - 1) + 1)];
+        const yys = this.yys[Math.floor(Math.random() * 3 + 1)];
         arr.push({
           yys,
           nickname: ikeaName,
