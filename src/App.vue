@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <div class="zhuanfa">
+        <div v-for="(vals, valsIndex) in inputList" :key="valsIndex" class="zhuanfa" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
           <div class="profiles">
             <img
               class="errorImg"
@@ -55,16 +55,19 @@
           <div class="zhuanfa-content">
             <p class="currentname">{{ item.nickname }}</p>
             <div class="zhuanfa-png">
-              <div class="zf-tp">
+              <div
+                class="zf-tp"
+                :style="`background-image: url(${require(`./assets/zhuanfa/zf${valsIndex+1}.jpg`)});`"
+              >
                 <!-- <img src="./assets/zhuanfa/zf.jpg" alt /> -->
               </div>
               <div>
-                <p class="title">{{ title }}</p>
+                <p class="title">{{ vals.title }}</p>
               </div>
             </div>
             <div class="footer">
               <div class="infos">
-                <p>{{ Math.floor(Math.random() * (10 -1) + 1) }}分钟前</p>
+                <p>{{ valsIndex == 0 ? Math.floor(Math.random() * 6 + 1) : Math.floor(Math.random() * 16 + 6) }}分钟前</p>
                 <p>钉钉</p>
                 <img src="./assets/oparetion/icon_delete.png" />
               </div>
@@ -104,6 +107,7 @@
 
         <el-button type="text" @click="downLoadImg">点击下载</el-button>
 
+
         <el-dialog
           title="文件个数"
           :visible.sync="dialogVisible"
@@ -125,6 +129,7 @@
         <div>
           <el-button type="text" @click="herfToLook">去看一看</el-button>
         </div>
+
       </div>
     </div>
     <div class="looks" v-else>
@@ -168,20 +173,20 @@
           </div>
         </div>
 
-        <div class="news">
+        <div class="news" v-for="(vals, valsIndex) in inputList" :key="valsIndex" :style="valsIndex != 0 ? 'margin-top: 30px' : ''">
           <div class="news-top">
             <div class="news-infos">
-              <p>{{ title }}</p>
-              <p class="auth">{{ auth }}</p>
+              <p>{{ vals.title }}</p>
+              <p class="auth">{{ vals.auth }}</p>
             </div>
             <div class="tp">
-              <img src="./assets/zhuanfa/zf.jpg" />
+              <img :src="require(`./assets/zhuanfa/zf${valsIndex+1}.jpg`)" />
             </div>
           </div>
 
           <div class="news-bottom">
             <div class="times-ago">
-              <p>{{ Math.floor(Math.random() * (10 -1) + 1) }}分钟前</p>
+              <p>{{ valsIndex == 0 ? Math.floor(Math.random() * 6 + 1) :  Math.floor(Math.random() * 16 + 6) }}分钟前</p>
             </div>
 
             <div class="times-bottom">
@@ -247,10 +252,23 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
+      inputList: [
+        {
+          title: "微信也要莫名“挨刀”了",
+          auth: "有理儿有面",
+          otherTitle: "赖清德喜提新名“赖八万”",
+          otherAuth: "有理儿有面",
+        },{
+          title: "再加一条转发内容",
+          auth: "有理儿有面",
+          otherTitle: "赖清德喜提新名“赖八万”",
+          otherAuth: "有理儿有面",
+        }
+      ],
       yys: {
-        1: '中国移动',
-        2: '中国电信',
-        3: '中国联通',
+        1: "中国移动",
+        2: "中国电信",
+        3: "中国联通"
       },
       interNames,
       times: "11:30", //moment(new Date()).format("HH:mm"),
@@ -260,20 +278,20 @@ export default {
       num: 1,
       zfImg: [
         {
-          yys: '中国移动',
+          yys: "中国移动",
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
           randomTimes: "11:30", //moment(new Date()).format("HH:mm"),
-          txIndex: Math.floor(Math.random() * (20 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           )
         }
       ],
-      zfsrc: require("./assets/zhuanfa/zf1.png"),
+      zfsrc: require("./assets/zhuanfa/zf1.jpg"),
       // otherName: generateIkeaLikeName(),
       textLangs: langs,
       frendsTimes: 25,
@@ -300,6 +318,7 @@ export default {
     }
   },
   methods: {
+    inputnums() {},
     errorImg(e, tag) {
       const ducomentClass = document.getElementsByClassName("errorImg");
       if (tag === "current") {
@@ -361,17 +380,17 @@ export default {
       // 将上传完摁键转换数组
       const arr = [
         {
-          yys: '中国移动',
+          yys: "中国移动",
           nickname: "不知江月待何人",
           frendsTimes: 25,
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (13 - 6) + 1)],
           randomTimes: this.times,
-          txIndex: Math.floor(Math.random() * (20 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (20 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
-          ),
+          )
         }
       ];
       for (let i = 2; i <= this.num; i++) {
@@ -382,7 +401,7 @@ export default {
         if (randomHourNum === 15) {
           randomMinuteNum = Math.floor(Math.random() * (30 - 1) + 1);
         }
-        if(randomHourNum === 11){
+        if (randomHourNum === 11) {
           randomMinuteNum = Math.floor(Math.random() * (60 - 30) + 30);
         }
         const timeStr = moment()
@@ -403,13 +422,13 @@ export default {
           this.types = "分钟";
         }
         // 随机获取头像index值
-        const txIndex = Math.floor(Math.random() * (20 - 1) + 1);
-        const othertxIndex = Math.floor(Math.random() * (20 - 1) + 1);
+        const txIndex = Math.floor(Math.random() * (500 - 1) + 1);
+        const othertxIndex = Math.floor(Math.random() * (500 - 1) + 1);
         // j获取随机时间 - 》 48小时
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
         );
-        const yys = this.yys[Math.floor(Math.random() * (4 - 1) + 1)]
+        const yys = this.yys[Math.floor(Math.random() * (4 - 1) + 1)];
         arr.push({
           yys,
           nickname: ikeaName,
@@ -672,7 +691,7 @@ body {
   width: 300px;
   .currentname {
     font-size: 16px;
-    color: #485460;
+    color: #5b6990;
     font-weight: 600;
   }
 }
@@ -692,7 +711,7 @@ body {
   .zf-tp {
     width: 35px;
     height: 30px;
-    background-image: url("./assets/zhuanfa/zf.jpg");
+    // background-image: url("./assets/zhuanfa/zf.jpg");
     background-size: 100% 100%;
   }
   .title {
@@ -714,7 +733,7 @@ body {
     margin-right: 8px;
   }
   img {
-    height: 14px;
+    height: 18px;
   }
 }
 .oparetions {
@@ -742,10 +761,10 @@ body {
   .friends-other {
     width: 300px;
     padding-left: 10px;
-    color: #485460;
+    color: #5b6990;
     .currentname {
       font-size: 16px;
-      color: #485460;
+      color: #5b6990;
       font-weight: 600;
     }
   }
