@@ -507,7 +507,7 @@ export default {
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
       ducomentClassArray.forEach((items, index) => {
-        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1, foreignObjectRendering: true, }).then(
+        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
           canvas => {
             // 追加一个canvas元素
             const dom = document.body.appendChild(canvas);
@@ -550,7 +550,7 @@ export default {
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
       ducomentClassArray.forEach((items, index) => {
-        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1,foreignObjectRendering: true }).then(
+        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
           canvas => {
             // 追加一个canvas元素
             const dom = document.body.appendChild(canvas);
