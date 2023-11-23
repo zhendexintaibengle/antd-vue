@@ -266,15 +266,15 @@ export default {
     return {
       inputList: [
         {
-          title: "微信也要莫名“挨刀”了微信也要莫名“挨刀”了微信也要莫名“挨刀”了",
+          title: "2024，得AI者得白宫！",
           auth: "有理儿有面",
-          otherTitle: "赖清德喜提新名“赖八万”",
+          otherTitle: "微信也要莫名“挨刀”了",
           otherAuth: "有理儿有面"
         },
         {
-          title: "再加一条转发内容",
+          title: "“休克疗法”，能让阿根廷满血复活吗？",
           auth: "有理儿有面",
-          otherTitle: "赖清德喜提新名“赖八万”",
+          otherTitle: "微信也要莫名“挨刀”了",
           otherAuth: "有理儿有面"
         }
       ],
@@ -313,7 +313,7 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "微信也要莫名“挨刀”了",
+      title: "2024，得AI者得白宫！",
       auth: "有理儿有面",
       otherTitle: "赖清德喜提新名“赖八万”",
       otherAuth: "有理儿有面",
