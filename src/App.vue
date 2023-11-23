@@ -8,7 +8,7 @@
       >
         <div
           class="top-img"
-          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.png`)});`"
+          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.jpg`)});`"
         >
           <!-- <img src="./assets/img/bg/bg1.jpg" crossorigin="use-credentials" /> -->
           <div class="top-img-time">
@@ -36,7 +36,7 @@
             <div class="top-toux">
               <img
                 class="errorImg"
-                :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)"
+                :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)"
                 crossorigin="anonymous"
               />
             </div>
@@ -52,7 +52,7 @@
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)"
+              :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)"
               crossorigin="anonymous"
             />
           </div>
@@ -85,7 +85,7 @@
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/profiles/${item.othertxIndex}.png`)"
+              :src="require(`./assets/img/profiles/${item.othertxIndex}.jpg`)"
               @error="errorImg(index, 'other')"
               crossorigin="anonymous"
             />
@@ -166,7 +166,7 @@
         <div class="myTx">
           <div class="left-div">
             <div class="myTx-img">
-              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)" />
+              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)" />
             </div>
             <p>{{ item.nickname }}</p>
           </div>
@@ -507,7 +507,7 @@ export default {
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
       ducomentClassArray.forEach((items, index) => {
-        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
+        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1, foreignObjectRendering: true, }).then(
           canvas => {
             // 追加一个canvas元素
             const dom = document.body.appendChild(canvas);
@@ -550,7 +550,7 @@ export default {
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
       ducomentClassArray.forEach((items, index) => {
-        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
+        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1,foreignObjectRendering: true }).then(
           canvas => {
             // 追加一个canvas元素
             const dom = document.body.appendChild(canvas);
@@ -577,7 +577,9 @@ export default {
               });
             }
           }
-        );
+        ).catch(()=>{
+          console.log(12321231)
+        })
       });
     }
   }
