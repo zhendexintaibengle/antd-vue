@@ -8,7 +8,7 @@
       >
         <div
           class="top-img"
-          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.webp`)});`"
+          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.png`)});`"
         >
           <!-- <img src="./assets/img/bg/bg1.jpg" crossorigin="use-credentials" /> -->
           <div class="top-img-time">
@@ -36,7 +36,7 @@
             <div class="top-toux">
               <img
                 class="errorImg"
-                :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)"
+                :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)"
                 crossorigin="anonymous"
               />
             </div>
@@ -52,7 +52,7 @@
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)"
+              :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)"
               crossorigin="anonymous"
             />
           </div>
@@ -85,7 +85,7 @@
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/profiles/${item.othertxIndex}.webp`)"
+              :src="require(`./assets/img/profiles/${item.othertxIndex}.png`)"
               @error="errorImg(index, 'other')"
               crossorigin="anonymous"
             />
@@ -166,7 +166,7 @@
         <div class="myTx">
           <div class="left-div">
             <div class="myTx-img">
-              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.webp`)" />
+              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.png`)" />
             </div>
             <p>{{ item.nickname }}</p>
           </div>
@@ -294,13 +294,13 @@ export default {
       zfImg: [
         {
           yys: "中国移动",
-          nickname: "不知江月待何人",
+          nickname: interNames[Math.floor(Math.random() * (500 - 1) + 1)],
           frendsTimes: 25,
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: "11:30", //moment(new Date()).format("HH:mm"),
-          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (50 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (50 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
@@ -398,13 +398,13 @@ export default {
       const arr = [
         {
           yys: "中国移动",
-          nickname: "不知江月待何人",
+          nickname: interNames[Math.floor(Math.random() * (500 - 1) + 1)],
           frendsTimes: 25,
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: this.times,
-          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (50 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (50 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
@@ -440,8 +440,8 @@ export default {
           this.types = "分钟";
         }
         // 随机获取头像index值
-        const txIndex = Math.floor(Math.random() * (500 - 1) + 1);
-        const othertxIndex = Math.floor(Math.random() * (500 - 1) + 1);
+        const txIndex = Math.floor(Math.random() * (50 - 1) + 1);
+        const othertxIndex = Math.floor(Math.random() * (50 - 1) + 1);
         // j获取随机时间 - 》 48小时
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
