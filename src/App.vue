@@ -299,8 +299,8 @@ export default {
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: "11:30", //moment(new Date()).format("HH:mm"),
-          txIndex: Math.floor(Math.random() * (50 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (50 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
@@ -403,8 +403,8 @@ export default {
           types: "分钟",
           otherName: interNames[Math.floor(Math.random() * (1000 - 501) + 501)],
           randomTimes: this.times,
-          txIndex: Math.floor(Math.random() * (50 - 1) + 1),
-          othertxIndex: Math.floor(Math.random() * (50 - 1) + 1),
+          txIndex: Math.floor(Math.random() * (500 - 1) + 1),
+          othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
@@ -440,8 +440,8 @@ export default {
           this.types = "分钟";
         }
         // 随机获取头像index值
-        const txIndex = Math.floor(Math.random() * (50 - 1) + 1);
-        const othertxIndex = Math.floor(Math.random() * (50 - 1) + 1);
+        const txIndex = Math.floor(Math.random() * (500 - 1) + 1);
+        const othertxIndex = Math.floor(Math.random() * (500 - 1) + 1);
         // j获取随机时间 - 》 48小时
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
