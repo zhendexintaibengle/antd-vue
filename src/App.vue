@@ -199,7 +199,7 @@
 
             <div class="times-bottom">
               <div class="looking">
-                <span>1在看</span>
+                <span>{{vals.looksNum}}在看</span>
                 <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
@@ -233,7 +233,7 @@
 
             <div class="times-bottom">
               <div class="looking">
-                <span>1在看</span>
+                <span>{{item.looksNum}}在看</span>
                 <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
@@ -269,13 +269,15 @@ export default {
           title: "2024，得AI者得白宫！",
           auth: "有理儿有面",
           otherTitle: "微信也要莫名“挨刀”了",
-          otherAuth: "有理儿有面"
+          otherAuth: "有理儿有面",
+          looksNum: Math.floor(Math.random() * 5 + 1),
         },
         {
           title: "“休克疗法”，能让阿根廷满血复活吗？",
           auth: "有理儿有面",
           otherTitle: "微信也要莫名“挨刀”了",
-          otherAuth: "有理儿有面"
+          otherAuth: "有理儿有面",
+          looksNum: Math.floor(Math.random() * 5 + 1),
         }
       ],
       yys: {
@@ -301,7 +303,8 @@ export default {
           othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
-          )
+          ),
+          looksNum: Math.floor(Math.random() * 5 + 1),
         }
       ],
       zfsrc: require("./assets/zhuanfa/zf1.jpg"),
@@ -318,7 +321,7 @@ export default {
       otherTitle: "赖清德喜提新名“赖八万”",
       otherAuth: "有理儿有面",
       shuiyin: "028",
-      loading: false
+      loading: false,
     };
   },
   computed: {
@@ -404,7 +407,8 @@ export default {
           othertxIndex: Math.floor(Math.random() * (500 - 1) + 1),
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
-          )
+          ),
+          looksNum: Math.floor(Math.random() * 5 + 1),
         }
       ];
       for (let i = 2; i <= this.num; i++) {
@@ -454,7 +458,8 @@ export default {
           othertxIndex,
           dateTimes: moment(
             new Date().getTime() - largeTime - 48 * 60 * 60 * 1000
-          ).format("MM月DD日")
+          ).format("MM月DD日"),
+          looksNum: Math.floor(Math.random() * 5 + 1),
         });
       }
       this.zfImg = arr;
