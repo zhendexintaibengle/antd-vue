@@ -137,7 +137,7 @@
     </div>
     <div class="looks" v-else>
       <div
-        :class="['contant', index >= 1 && 'content-other', 'looks-div']"
+        :class="['contant', 'looks-div']"
         v-for="(item, index) in zfImg"
         :key="item.nickname"
       >
@@ -199,7 +199,7 @@
 
             <div class="times-bottom">
               <div class="looking">
-                <span>{{vals.looksNum}}在看</span>
+                <span>{{zfImg.length > 1 ? item.looksNum : vals.looksNum}}在看</span>
                 <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
