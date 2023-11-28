@@ -199,7 +199,7 @@
 
             <div class="times-bottom">
               <div class="looking">
-                <span>{{zfImg.length > 1 ? item.looksNum : vals.looksNum}}在看</span>
+                <span>{{ Math.floor(Math.random() * 5 + 1)}}在看</span>
                 <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
@@ -233,7 +233,7 @@
 
             <div class="times-bottom">
               <div class="looking">
-                <span>{{item.looksNum}}在看</span>
+                <span>{{ Math.floor(Math.random() * 5 + 1)}}在看</span>
                 <img src="./assets/oparetion/pull.jpg" />
               </div>
               <div class="right-tp">
