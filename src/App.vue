@@ -137,7 +137,7 @@
     </div>
     <div class="looks" v-else>
       <div
-        :class="['contant', 'looks-div']"
+        :class="['contant',index >= 1 && 'content-other', 'looks-div']"
         v-for="(item, index) in zfImg"
         :key="item.nickname"
       >
