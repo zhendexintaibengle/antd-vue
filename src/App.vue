@@ -222,7 +222,7 @@
               <p class="auth">{{ otherAuth }}</p>
             </div>
             <div class="tp">
-              <img src="./assets/zhuanfa/zf2.jpg" />
+              <img src="./assets/zhuanfa/zf3.jpg" />
             </div>
           </div>
 
@@ -266,16 +266,16 @@ export default {
     return {
       inputList: [
         {
-          title: "2024，得AI者得白宫！",
+          title: "不可思议的“印度之光”",
           auth: "有理儿有面",
-          otherTitle: "微信也要莫名“挨刀”了",
+          otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1),
         },
         {
-          title: "“休克疗法”，能让阿根廷满血复活吗？",
+          title: "谁是气候合作的“铁公鸡”？",
           auth: "有理儿有面",
-          otherTitle: "微信也要莫名“挨刀”了",
+          otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1),
         }
@@ -316,9 +316,9 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "2024，得AI者得白宫！",
+      title: "不可思议的“印度之光”",
       auth: "有理儿有面",
-      otherTitle: "赖清德喜提新名“赖八万”",
+      otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
       otherAuth: "有理儿有面",
       shuiyin: "028",
       loading: false,
