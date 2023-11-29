@@ -1,5 +1,5 @@
 <template>
-  <div  v-loading="loading" element-loading-text="拼命下载中,请稍后...">
+  <div v-loading="loading" element-loading-text="拼命下载中,请稍后...">
     <div class="main" v-if="isShow">
       <div
         :class="['contant', index >= 1 && 'content-other']"
@@ -8,7 +8,7 @@
       >
         <div
           class="top-img"
-          :style="`background-image: url(${require(`./assets/img/bg/${item.txIndex}.jpg`)});`"
+          :style="`background-image: url(${require(`./assets/img/bg/${index + 1 + currentIndex}.jpg`)});`"
         >
           <!-- <img src="./assets/img/bg/bg1.jpg" crossorigin="use-credentials" /> -->
           <div class="top-img-time">
@@ -32,11 +32,11 @@
           </div>
 
           <div class="name">
-            <p>{{ item.nickname }}</p>
+            <p>{{ interNames[index + 1 + currentIndex] }}</p>
             <div class="top-toux">
               <img
                 class="errorImg"
-                :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)"
+                :src="require(`./assets/img/currentprofiles/${index + 1 + currentIndex}.jpg`)"
                 crossorigin="anonymous"
               />
             </div>
@@ -45,20 +45,20 @@
 
         <div
           v-for="(vals, valsIndex) in inputList"
-          :key="vals.nickname"
+          :key="valsIndex"
           class="zhuanfa"
           :style="valsIndex != 0 ? 'margin-top: 30px' : ''"
         >
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)"
+              :src="require(`./assets/img/currentprofiles/${index + 1 + currentIndex}.jpg`)"
               crossorigin="anonymous"
             />
           </div>
 
           <div class="zhuanfa-content">
-            <p class="currentname">{{ item.nickname }}</p>
+            <p class="currentname">{{ interNames[index + 1 + currentIndex] }}</p>
             <div class="zhuanfa-png">
               <div
                 class="zf-tp"
@@ -85,13 +85,13 @@
           <div class="profiles">
             <img
               class="errorImg"
-              :src="require(`./assets/img/profiles/${item.othertxIndex}.jpg`)"
+              :src="require(`./assets/img/profiles/${index + 1 + currentIndex}.jpg`)"
               @error="errorImg(index, 'other')"
               crossorigin="anonymous"
             />
           </div>
           <div class="friends-other">
-            <p class="currentname">{{ item.otherName }}</p>
+            <p class="currentname">{{ interNames[index+1+500+currentIndex] }}</p>
             <!-- <div class="friends-other-img-div">
               <img class="friends-other-img" :src="backimg[Math.floor(Math.random() * (4 -1) + 1)]" />
             </div>-->
@@ -133,6 +133,9 @@
         <div>
           <el-button type="text" @click="herfToLook" :disabled="loading">去看一看</el-button>
         </div>
+        <div>
+          <el-button type="text" @click="checkInit" :disabled="loading">请确认初始化</el-button>
+        </div>
       </div>
     </div>
     <div class="looks" v-else>
@@ -166,9 +169,9 @@
         <div class="myTx">
           <div class="left-div">
             <div class="myTx-img">
-              <img :src="require(`./assets/img/currentprofiles/${item.txIndex}.jpg`)" />
+              <img :src="require(`./assets/img/currentprofiles/${index + 1 + currentIndex}.jpg`)" />
             </div>
-            <p>{{ item.nickname }}</p>
+            <p>{{ interNames[index+1+currentIndex] }}</p>
           </div>
           <div class="myTx-icons">
             <img src="./assets/oparetion/message.svg" />
@@ -264,20 +267,21 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
+      currentIndex: 0,
       inputList: [
         {
           title: "不可思议的“印度之光”",
           auth: "有理儿有面",
           otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
           otherAuth: "有理儿有面",
-          looksNum: Math.floor(Math.random() * 5 + 1),
+          looksNum: Math.floor(Math.random() * 5 + 1)
         },
         {
           title: "谁是气候合作的“铁公鸡”？",
           auth: "有理儿有面",
           otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
           otherAuth: "有理儿有面",
-          looksNum: Math.floor(Math.random() * 5 + 1),
+          looksNum: Math.floor(Math.random() * 5 + 1)
         }
       ],
       yys: {
@@ -304,7 +308,7 @@ export default {
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
-          looksNum: Math.floor(Math.random() * 5 + 1),
+          looksNum: Math.floor(Math.random() * 5 + 1)
         }
       ],
       zfsrc: require("./assets/zhuanfa/zf1.jpg"),
@@ -321,7 +325,7 @@ export default {
       otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
       otherAuth: "有理儿有面",
       shuiyin: "028",
-      loading: false,
+      loading: false
     };
   },
   computed: {
@@ -334,7 +338,19 @@ export default {
       return timeStr;
     }
   },
+  created(){
+    const result = sessionStorage.getItem('currentIndex') || 0
+    this.currentIndex = Number(result)
+  },
   methods: {
+    checkInit(){
+      sessionStorage.setItem('currentIndex', 0)
+      this.currentIndex = 0
+      this.$message({
+        type: 'success',
+        message: '初始化成功，下载将从1开始。。'
+      })
+    },
     inputnums() {},
     errorImg(e, tag) {
       const ducomentClass = document.getElementsByClassName("errorImg");
@@ -408,7 +424,7 @@ export default {
           dateTimes: moment(new Date().getTime() - 48 * 60 * 60 * 1000).format(
             "MM月DD日"
           ),
-          looksNum: Math.floor(Math.random() * 5 + 1),
+          looksNum: Math.floor(Math.random() * 5 + 1)
         }
       ];
       for (let i = 2; i <= this.num; i++) {
@@ -459,7 +475,7 @@ export default {
           dateTimes: moment(
             new Date().getTime() - largeTime - 48 * 60 * 60 * 1000
           ).format("MM月DD日"),
-          looksNum: Math.floor(Math.random() * 5 + 1),
+          looksNum: Math.floor(Math.random() * 5 + 1)
         });
       }
       this.zfImg = arr;
@@ -470,6 +486,7 @@ export default {
         type: "success",
         message: "上传成功"
       });
+
     },
     handleChange(value) {
       this.num = value.toFixed();
@@ -495,7 +512,6 @@ export default {
     },
 
     downLoadLooks() {
-
       this.loading = true;
       this.$message({
         type: "success",
@@ -539,6 +555,11 @@ export default {
     },
 
     downLoadImg() {
+      const index = sessionStorage.getItem('currentIndex')
+      if(index>500){
+        sessionStorage.setItem('currentIndex', 0)
+        this.currentIndex = 0
+      }
       this.loading = true;
       this.$message({
         type: "success",
@@ -550,8 +571,8 @@ export default {
       // 创建一个a标签 方便后续下载绘制好的图片
       const a = document.createElement("a");
       ducomentClassArray.forEach((items, index) => {
-        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 }).then(
-          canvas => {
+        html2canvas(items, { useCORS: true, allowTaint: true, scale: 1 })
+          .then(canvas => {
             // 追加一个canvas元素
             const dom = document.body.appendChild(canvas);
             // 隐藏我们新创建的元素
@@ -571,15 +592,18 @@ export default {
 
             if (index + 1 === this.num) {
               this.loading = false;
+              sessionStorage.setItem('currentIndex', this.num == 1 ? 0 : this.num)
+              const resultNum = sessionStorage.getItem('currentIndex')
+              this.currentIndex = Number(resultNum)
               this.$message({
                 type: "success",
                 message: "已下载完成..."
               });
             }
-          }
-        ).catch(()=>{
-          console.log(12321231)
-        })
+          })
+          .catch(() => {
+            console.log(12321231);
+          });
       });
     }
   }
