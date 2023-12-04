@@ -591,10 +591,11 @@ export default {
             URL.revokeObjectURL(blob);
             document.body.removeChild(a);
 
+
             if (index + 1 === this.num) {
               this.loading = false;
               sessionStorage.setItem('currentIndex', this.num == 1 ? 0 : this.num)
-              const resultNum = sessionStorage.getItem('currentIndex')
+              const resultNum = Number(sessionStorage.getItem('currentIndex')) + this.currentIndex
               this.currentIndex = Number(resultNum)
               this.$message({
                 type: "success",
