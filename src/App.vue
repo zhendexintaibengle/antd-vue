@@ -270,16 +270,16 @@ export default {
       currentIndex: 0,
       inputList: [
         {
-          title: "不可思议的“印度之光”",
+          title: "星舰误点，我们跟嫦娥先走了",
           auth: "有理儿有面",
-          otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
+          otherTitle: "不可思议的“印度之光”？",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
         {
-          title: "谁是气候合作的“铁公鸡”？",
+          title: "“司机”这是要翻车了吗？",
           auth: "有理儿有面",
-          otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
+          otherTitle: "不可思议的“印度之光”？",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         }
@@ -320,9 +320,9 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "不可思议的“印度之光”",
+      title: "星舰误点，我们跟嫦娥先走了",
       auth: "有理儿有面",
-      otherTitle: "“休克疗法”，能让阿根廷满血复活吗？",
+      otherTitle: "不可思议的“印度之光”",
       otherAuth: "有理儿有面",
       shuiyin: "028",
       loading: false
