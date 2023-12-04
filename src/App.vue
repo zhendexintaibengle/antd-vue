@@ -545,6 +545,9 @@ export default {
 
             if (index + 1 === this.num) {
               this.loading = false;
+              sessionStorage.setItem('currentIndex', this.num == 1 ? 0 : this.num)
+              const resultNum = Number(sessionStorage.getItem('currentIndex')) + this.currentIndex
+              this.currentIndex = Number(resultNum)
               this.$message({
                 type: "success",
                 message: "已下载完成..."
@@ -594,9 +597,6 @@ export default {
 
             if (index + 1 === this.num) {
               this.loading = false;
-              sessionStorage.setItem('currentIndex', this.num == 1 ? 0 : this.num)
-              const resultNum = Number(sessionStorage.getItem('currentIndex')) + this.currentIndex
-              this.currentIndex = Number(resultNum)
               this.$message({
                 type: "success",
                 message: "已下载完成..."
