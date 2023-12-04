@@ -231,7 +231,7 @@
 
           <div class="news-bottom">
             <div class="times-ago">
-              <p>{{ item.dateTimes}}</p>
+              <p>{{ historyTimes }}</p>
             </div>
 
             <div class="times-bottom">
@@ -267,6 +267,7 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
+      historyTimes: "11月28日",
       currentIndex: 0,
       inputList: [
         {
