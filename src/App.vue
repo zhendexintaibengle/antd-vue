@@ -164,7 +164,7 @@
             <img src="./assets/icons/reback-looks.svg" />
           </div>
           <div class="mylook">我的在看</div>
-        </div>你配吗
+        </div>
 
         <div class="myTx">
           <div class="left-div">
