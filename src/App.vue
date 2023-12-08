@@ -147,7 +147,7 @@
         <div class="top-img-time looks-tops">
           <div class="top-img-time-left">
             <img class="looks-xinhao" src="./assets/icons/xinhao-black.svg" />
-            <div class="leftpngs-looks">中国移动</div>
+            <div class="leftpngs-looks">{{item.yys}}</div>
             <img class="leftpngs looks-wifi" src="./assets/icons/wifi-black.svg" />
           </div>
           <div class="top-img-time-mindel-looks">{{item.randomTimes}}</div>
@@ -406,6 +406,7 @@ export default {
       this.num = 1;
     },
     comfirm() {
+      const yys = this.yys[Math.floor(Math.random() * 3 + 1)];
       this.dialogVisible = false;
       const currentTimes = new Date(); //moment(new Date()).format("LT")
       const times = currentTimes.getTime();
@@ -414,7 +415,7 @@ export default {
       // 将上传完摁键转换数组
       const arr = [
         {
-          yys: "中国移动",
+          yys,
           nickname: interNames[Math.floor(Math.random() * (500 - 1) + 1)],
           frendsTimes: 25,
           types: "分钟",
@@ -463,7 +464,6 @@ export default {
         const largeTime = Math.floor(
           Math.random() * (120 * 60 * 60 * 1000 - 1) + 48 * 60 * 60 * 1000
         );
-        const yys = this.yys[Math.floor(Math.random() * 3 + 1)];
         arr.push({
           yys,
           nickname: ikeaName,
