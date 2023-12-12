@@ -406,7 +406,7 @@ export default {
       this.num = 1;
     },
     comfirm() {
-      const yys = this.yys[Math.floor(Math.random() * 3 + 1)];
+      let yys = this.yys[Math.floor(Math.random() * 3 + 1)];
       this.dialogVisible = false;
       const currentTimes = new Date(); //moment(new Date()).format("LT")
       const times = currentTimes.getTime();
@@ -430,6 +430,7 @@ export default {
         }
       ];
       for (let i = 2; i <= this.num; i++) {
+        yys = this.yys[Math.floor(Math.random() * 3 + 1)];
         // 随机生成11-15 数字
         const randomHourNum = Math.floor(Math.random() * (15 - 11) + 11);
         // 随机生成0 - 60 数字
