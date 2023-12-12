@@ -267,23 +267,23 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
-      historyTimes: "12月4日",
+      historyTimes: "12月7日",
       currentIndex: 0,
       inputList: [
         {
-          title: "穆迪下调中国评级，再现偏见和双标",
-          auth: "有理儿有面",
-          otherTitle: "星舰误点，我们跟嫦娥先走了",
+          title: "严打非法证券期货犯罪净化股市生态典型案例",
+          auth: "公安部经侦局",
+          otherTitle: "穆迪下调中国评级，再现偏见和双标",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
-        {
-          title: "社交媒体：拆解西方代议制民主政治神话",
-          auth: "有理儿有面",
-          otherTitle: "星舰误点，我们跟嫦娥先走了",
-          otherAuth: "有理儿有面",
-          looksNum: Math.floor(Math.random() * 5 + 1)
-        }
+       // {
+         // title: "社交媒体：拆解西方代议制民主政治神话",
+          //auth: "有理儿有面",
+          //otherTitle: "星舰误点，我们跟嫦娥先走了",
+          //otherAuth: "有理儿有面",
+          //looksNum: Math.floor(Math.random() * 5 + 1)
+        //}
       ],
       yys: {
         1: "中国移动",
@@ -321,9 +321,9 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "穆迪下调中国评级，再现偏见和双标",
-      auth: "有理儿有面",
-      otherTitle: "星舰误点，我们跟嫦娥先走了",
+      title: "严打非法证券期货犯罪净化股市生态典型案例",
+      auth: "公安部经侦局",
+      otherTitle: "穆迪下调中国评级，再现偏见和双标",
       otherAuth: "有理儿有面",
       shuiyin: "028",
       loading: false
