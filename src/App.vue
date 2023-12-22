@@ -267,21 +267,21 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
-      historyTimes: "12月13日",
+      historyTimes: "6小时前",
       currentIndex: 0,
       inputList: [
         {
-          title: "专家解读｜统一执法司法，完善醉驾治理体系",
-          auth: "也评",
-          otherTitle: "防范讲堂丨场外配资？不配！",
-          otherAuth: "公安部经侦局",
+          title: "韩国人吃口饭，怎么就那么难",
+          auth: "有理儿有面",
+          otherTitle: "专家解读｜统一执法司法，完善醉驾治理体系",
+          otherAuth: "也评",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
         {
-          title: "专家解读｜规范证据收集、完善办理程序 提升醉驾案件办案质效",
-          auth: "也评",
-          otherTitle: "防范讲堂丨场外配资？不配！",
-          otherAuth: "公安部经侦局",
+          title: "送走“凤雏”迎“卧龙”，“永久中立国”咋就把自己玩到了战争边缘？",
+          auth: "有理儿有面",
+          otherTitle: "专家解读｜统一执法司法，完善醉驾治理体系",
+          otherAuth: "也评",
           looksNum: Math.floor(Math.random() * 5 + 1)
         }
       ],
@@ -321,10 +321,10 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "刚刚：“哈佛、宾大校长辞职！麻省理工遭压力挺身护自由”",
-      auth: "也评",
-      otherTitle: "防范讲堂丨场外配资？不配！",
-      otherAuth: "公安部经侦局",
+      title: "韩国人吃口饭，怎么就那么难",
+      auth: "有理儿有面",
+      otherTitle: "专家解读｜统一执法司法，完善醉驾治理体系",
+      otherAuth: "也评",
       shuiyin: "028",
       loading: false
     };
