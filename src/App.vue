@@ -267,23 +267,23 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
-      historyTimes: "12月21日",
+      historyTimes: "12月25日",
       currentIndex: 0,
       inputList: [
         {
-          title: "警情通报",
-          auth: "东昌府公安",
-          otherTitle: "韩国人吃口饭，怎么就那么难",
-          otherAuth: "有理儿有面",
+          title: "美“2024财年国防授权法”生效，包藏多少反华祸心？",
+          auth: "有理儿有面",
+          otherTitle: "警情通报",
+          otherAuth: "东昌府公安",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
-       /* {
-          title: "送走“凤雏”迎“卧龙”，“永久中立国”咋就把自己玩到了战争边缘？",
+        {
+          title: "盘点拜登2023年“十大囧”时刻",
           auth: "有理儿有面",
-          otherTitle: "专家解读｜统一执法司法，完善醉驾治理体系",
-          otherAuth: "也评",
+          otherTitle: "警情通报",
+          otherAuth: "东昌府公安",
           looksNum: Math.floor(Math.random() * 5 + 1)
-        }*/
+        }
       ],
       yys: {
         1: "中国移动",
@@ -321,10 +321,10 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "警情通报",
-      auth: "东昌府公安",
-      otherTitle: "韩国人吃口饭，怎么就那么难",
-      otherAuth: "有理儿有面",
+      title: "美“2024财年国防授权法”生效，包藏多少反华祸心？",
+      auth: "有理儿有面",
+      otherTitle: "警情通报",
+      otherAuth: "东昌府公安",
       shuiyin: "028",
       loading: false
     };
