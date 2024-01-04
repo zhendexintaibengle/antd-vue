@@ -267,21 +267,21 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
-      historyTimes: "12月25日",
+      historyTimes: "12月29日",
       currentIndex: 0,
       inputList: [
         {
-          title: "美“2024财年国防授权法”生效，包藏多少反华祸心？",
+          title: "​“世界警察”严重透支，航母“兴奋剂”也不管用了",
           auth: "有理儿有面",
-          otherTitle: "警情通报",
-          otherAuth: "东昌府公安",
+          otherTitle: "盘点拜登2023年“十大囧”时刻",
+          otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
         {
-          title: "盘点拜登2023年“十大囧”时刻",
+          title: "大地震苦等自卫队",
           auth: "有理儿有面",
-          otherTitle: "警情通报",
-          otherAuth: "东昌府公安",
+          otherTitle: "盘点拜登2023年“十大囧”时刻",
+          otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         }
       ],
@@ -321,10 +321,10 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "美“2024财年国防授权法”生效，包藏多少反华祸心？",
+      title: "​“世界警察”严重透支，航母“兴奋剂”也不管用了",
       auth: "有理儿有面",
-      otherTitle: "警情通报",
-      otherAuth: "东昌府公安",
+      otherTitle: "盘点拜登2023年“十大囧”时刻",
+      otherAuth: "有理儿有面",
       shuiyin: "028",
       loading: false
     };
