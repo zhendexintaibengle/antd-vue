@@ -267,20 +267,20 @@ import interNames from "./store/names.js";
 export default {
   data() {
     return {
-      historyTimes: "12月29日",
+      historyTimes: "1月3日",
       currentIndex: 0,
       inputList: [
         {
-          title: "​“世界警察”严重透支，航母“兴奋剂”也不管用了",
-          auth: "有理儿有面",
-          otherTitle: "盘点拜登2023年“十大囧”时刻",
+          title: "《蔡英文秘史》带你沉浸式体验蔡英文的多面人生",
+          auth: "也评",
+          otherTitle: "大地震苦等自卫队",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         },
         {
-          title: "大地震苦等自卫队",
-          auth: "有理儿有面",
-          otherTitle: "盘点拜登2023年“十大囧”时刻",
+          title: "中美关系，名存实亡！美国还能存活多久？",
+          auth: "也评",
+          otherTitle: "大地震苦等自卫队",
           otherAuth: "有理儿有面",
           looksNum: Math.floor(Math.random() * 5 + 1)
         }
@@ -321,9 +321,9 @@ export default {
       backimg,
       currentTx,
       isShow: true,
-      title: "​“世界警察”严重透支，航母“兴奋剂”也不管用了",
-      auth: "有理儿有面",
-      otherTitle: "盘点拜登2023年“十大囧”时刻",
+      title: "​《蔡英文秘史》带你沉浸式体验蔡英文的多面人生",
+      auth: "也评",
+      otherTitle: "大地震苦等自卫队",
       otherAuth: "有理儿有面",
       shuiyin: "028",
       loading: false
